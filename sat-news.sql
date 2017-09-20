@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 16 Eyl 2017, 21:52:31
+-- Üretim Zamanı: 20 Eyl 2017, 21:45:45
 -- Sunucu sürümü: 10.1.21-MariaDB
 -- PHP Sürümü: 7.1.1
 
@@ -47,6 +47,17 @@ CREATE TABLE `categories` (
 -- --------------------------------------------------------
 
 --
+-- Tablo için tablo yapısı `category_tags`
+--
+
+CREATE TABLE `category_tags` (
+  `category_id` int(11) NOT NULL,
+  `tag_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Tablo için tablo yapısı `news`
 --
 
@@ -60,6 +71,26 @@ CREATE TABLE `news` (
   `author_id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `tags`
+--
+
+CREATE TABLE `tags` (
+  `id` int(11) NOT NULL,
+  `name` varchar(64) COLLATE utf8_turkish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+
+--
+-- Tablo döküm verisi `tags`
+--
+
+INSERT INTO `tags` (`id`, `name`) VALUES
+(1, 'Windows 10'),
+(2, 'Iphone 6'),
+(3, 'World Cup');
 
 --
 -- Dökümü yapılmış tablolar için indeksler
@@ -84,6 +115,12 @@ ALTER TABLE `news`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Tablo için indeksler `tags`
+--
+ALTER TABLE `tags`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Dökümü yapılmış tablolar için AUTO_INCREMENT değeri
 --
 
@@ -102,6 +139,11 @@ ALTER TABLE `categories`
 --
 ALTER TABLE `news`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- Tablo için AUTO_INCREMENT değeri `tags`
+--
+ALTER TABLE `tags`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
