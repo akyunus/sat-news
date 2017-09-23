@@ -1,0 +1,32 @@
+{% for cat in cats %}
+    
+<li class="dropdown mega-full menu-color3">
+  <a href="minimal_blog.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    {{cat.title}}
+  </a>
+  <ul class="dropdown-menu fullwidth">
+    <li>
+      <!-- 5 block news in Mega Menu -->
+      <div class="mega-menu-5block">
+        {% for i in 1..5 %}
+        <div class="mega-menu-news">
+          <div class="mega-menu-img">
+            <a href="#">
+              <img class="entry-thumb" src="img/medium-thumb/med_thumb35.jpg" alt="">
+            </a>
+          </div>
+          <div class="mega-menu-detail">
+            <h4 class="entry-title">
+              <a href="#">News {{i}} </a>
+            </h4>
+          </div>
+        </div><!-- .mega-menu-news -->
+        {% endfor %}
+
+
+        </div><!-- .mega-menu-5block -->
+    </li>
+  </ul><!-- .dropdown-menu .fullwidth -->
+</li><!-- .dropdown .mega-full .menu-color3 -->
+<!-- / Mega Menu -->
+{% endfor %}
