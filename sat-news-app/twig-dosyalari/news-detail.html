@@ -1,3 +1,5 @@
+{% extends "base.html" %}
+{% block content %}
 
     <div class="main-content mag-content clearfix">
 
@@ -9,17 +11,15 @@
             <header class="post-header">
 
               <h1 class="post-title">
-                9 Steps to Staying Motivated for Creative Freelancers
+                {{ news.title }}
               </h1><!-- .post-title -->
 
-              <a href="#" class="category bgcolor2">
-                Design
-              </a>
+
 
               <p class="simple-share">
-                <span>by <a href="page_author.html"><b>John Doe</b></a></span>
-                <span><span class="article-date"><i class="fa fa-clock-o"></i> 2 hours ago</span></span>
-                <span><i class="fa fa-eye"></i> 1349 views</span>
+                <span>by <a href="page_author.html"><b>{{news.author_name}}</b></a></span>
+                <span><span class="article-date"><i class="fa fa-clock-o"></i> {{news.date}}</span></span>
+                <span><i class="fa fa-eye"></i> {{news.views}} views</span>
                 <a class="comments-count" href="#comments">4</a>
               </p>
 
@@ -29,39 +29,17 @@
             </header><!-- .post-header -->
 
             <div class="post-content clearfix">
-              <p>How am I ever gonna explain this? Remember, <strong>a Jedi can feel the Force flowing through him</strong>. All right. Well, take care of yourself, Han. I guess that's what you're best at, ain't it? Still, she's got a lot of spirit. I don't know, what do you think? But with the blast shield down, I can't even see! How am I supposed to fight? I need your help, Luke. She needs your help. I'm getting too old for this sort of thing. </p>
-              <h3>The Phantom Menace</h3>
-              <div class="wp-caption alignright">
-                <a href="img/mobile1.jpg" class="popup-image">
-                  <img class="size-medium" src="img/small-thumb/small_thumb1.jpg" alt=""></a>
-                <p class="wp-caption-text">This is the image caption</p>
-              </div>
-              <p>Kid, I've flown from one side of this <a href="#">galaxy to the other</a>. I've seen a lot of strange stuff, but I've never seen anything to make me believe there's one all-powerful Force controlling everything. There's no mystical energy field that controls my destiny. It's all a lot of simple tricks and nonsense. Red Five standing by. I care. So, what do you think of her, Han? You don't believe in the Force, do you? I have traced the Rebel spies to her. Now she is my only link to finding their secret base.
-                  Remember, a Jedi can feel the Force flowing through him. Kid, I've flown from one side of this galaxy to the other. I've seen a lot of strange stuff, but I've never seen anything to make me believe there's one all-powerful Force controlling everything. There's no mystical energy field that controls my destiny. It's all a lot of simple tricks and nonsense. Hey, Luke! May the Force be with you. You're all clear, kid. Let's blow this thing and go home! Partially, but it also obeys your commands. I'm surprised you had the courage to take the responsibility yourself.
-              </p>
-              
-              <h3>The Rebel Force</h3>
-              <div class="wp-caption alignleft">
-                <a href="img/mobile2.jpg" class="popup-image">
-                  <img class="size-medium" src="img/small-thumb/small_thumb2.jpg" alt=""></a>
-                <p class="wp-caption-text">This is the image caption</p>
-              </div>
-              <p>Obi-Wan is here. The Force is with him. You are a part of the Rebel Alliance and a traitor! Take her away! A tremor in the Force. The last time I felt it was in the presence of my old master. Leave that to me. Send a distress signal, and inform the Senate that all on board were killed. Look, I can take you as far as Anchorhead. You can get a transport there to Mos Eisley or wherever you're going. Hey, Luke! May the Force be with you. You mean it controls your actions? But with the blast shield down, I can't even see! How am I supposed to fight? Red Five standing by. You are a part of the Rebel Alliance and a traitor! Take her away!
-                  Remember, a Jedi can feel the Force flowing through him. Kid, I've flown from one side of this galaxy to the other. I've seen a lot of strange stuff, but I've never seen anything to make me believe there's one all-powerful Force controlling everything. There's no mystical energy field that controls my destiny. It's all a lot of simple tricks and nonsense. Hey, Luke! May the Force be with you. You're all clear, kid. Let's blow this thing and go home! Partially, but it also obeys your commands. I'm surprised you had the courage to take the responsibility yourself.
-              </p>
-              <h3>Revenge of the Sith</h3>
-              <p>Remember, a Jedi can feel the Force flowing through him. Kid, I've flown from one side of this galaxy to the other. I've seen a lot of strange stuff, but I've never seen anything to make me believe there's one all-powerful Force controlling everything. There's no mystical energy field that controls my destiny. It's all a lot of simple tricks and nonsense. Hey, Luke! May the Force be with you. You're all clear, kid. Let's blow this thing and go home! Partially, but it also obeys your commands. I'm surprised you had the courage to take the responsibility yourself.</p>
-              <p>I want to come with you to Alderaan. There's nothing for me here now. I want to learn the ways of the Force and be a Jedi, like my father before me. He is here. Don't be too proud of this technological terror you've constructed. The ability to destroy a planet is insignificant next to the power of the Force.</p>
-
-            </div><!-- .post-content -->            
+              <p>{{news.content}}</p>
+            </div><!-- .post-content -->
 
             <footer class="post-meta">
               <div class="tags-wrapper">
                 <ul class="tags-widget clearfix">
                   <li class="trending">TAGS:</li>
-                  <li><a href="#">Creative</a></li>
-                  <li><a href="#">Wood</a></li>
-                  <li><a href="#">Advice</a></li>
+                  {% for tags in news_tags %}
+                  <li><a href="#">{{tags.name}}</a></li>
+
+                  {% endfor %}
                 </ul>
               </div><!-- .tags-wrapper -->
 
@@ -73,11 +51,11 @@
 
                 <div class="share-buttons">
                   <a class="social-share facebook" href="#">
-                    <i class="fa fa-facebook"></i> 
+                    <i class="fa fa-facebook"></i>
                     <span class="alt-text">Share</span>
                   </a>
                   <a class="social-share twitter" href="#">
-                    <i class="fa fa-twitter"></i> 
+                    <i class="fa fa-twitter"></i>
                     <span class="alt-text">Tweet</span>
                   </a>
                   <a class="social-share google-plus" href="#">
@@ -90,8 +68,8 @@
                     <i class="fa fa-pinterest"></i>
                   </a>
                 </div>
-              </div>                              
-              
+              </div>
+
               <div class="row">
                 <div class="post-nav-wrapper clearfix">
                   <div class="col-md-6 omega">
@@ -123,21 +101,21 @@
                   </a>
                 </div>
                 <div class="author-info">
-                  <h3><a href="page_author.html">John Doe</a></h3>
+                  <h3><a href="page_author.html">{{news.author_name}}</a></h3>
                   <p class="author-bio">
                     He is here. All right. Well, take care of yourself, Han. I guess that's what you're best at, ain't it? What?! Don't act so surprised, Your Highness. You weren't on any mercy mission this time.
                   </p>
                   <div class="author-contact">
-                    <a href="#"><i class="fa fa-envelope fa-lg" title="Email"></i></a> 
-                    <a href="#" target="_blank"><i class="fa fa-globe fa-lg" title="Website"></i></a>  
-                    <a href="#" target="_blank"><i class="fa fa-twitter fa-lg" title="Twitter"></i></a> 
-                    <a href="#" rel="publisher" target="_blank"><i title="Google+" class="fa fa-google-plus fa-lg"></i></a> 
-                    <a href="#" target="_blank"><i class="fa fa-facebook fa-lg" title="Facebook"></i></a> 
+                    <a href="#"><i class="fa fa-envelope fa-lg" title="Email"></i></a>
+                    <a href="#" target="_blank"><i class="fa fa-globe fa-lg" title="Website"></i></a>
+                    <a href="#" target="_blank"><i class="fa fa-twitter fa-lg" title="Twitter"></i></a>
+                    <a href="#" rel="publisher" target="_blank"><i title="Google+" class="fa fa-google-plus fa-lg"></i></a>
+                    <a href="#" target="_blank"><i class="fa fa-facebook fa-lg" title="Facebook"></i></a>
                   </div>
                 </div>
               </div>
             </footer>
-            
+
           </article><!-- .post-wrapper -->
 
           <div class="related-posts clearfix">
@@ -160,7 +138,7 @@
             </a>
           </h3>
           <p class="simple-share">
-            by <a href="#"><b>John Doe</b></a> -  
+            by <a href="#"><b>John Doe</b></a> -
             <span class="article-date"><i class="fa fa-clock-o"></i> 4 hours ago</span>
           </p>
         </header>
@@ -184,7 +162,7 @@
             </a>
           </h3>
           <p class="simple-share">
-            by <a href="#"><b>John Doe</b></a> -  
+            by <a href="#"><b>John Doe</b></a> -
             <span class="article-date"><i class="fa fa-clock-o"></i> 46 minutes ago</span>
           </p>
         </header>
@@ -211,7 +189,7 @@
             </a>
           </h3>
           <p class="simple-share">
-            by <a href="#"><b>John Doe</b></a> -  
+            by <a href="#"><b>John Doe</b></a> -
             <span class="article-date"><i class="fa fa-clock-o"></i> 12 hours ago</span>
           </p>
         </header>
@@ -235,7 +213,7 @@
             </a>
           </h3>
           <p class="simple-share">
-            by <a href="#"><b>John Doe</b></a> -  
+            by <a href="#"><b>John Doe</b></a> -
             <span class="article-date"><i class="fa fa-clock-o"></i> 13 hours ago</span>
           </p>
         </header>
@@ -243,7 +221,7 @@
     </div>
   </div><!-- .row -->
 
-</div><!-- .related-post -->          
+</div><!-- .related-post -->
           <!-- Mid ad -->
 <div class="row">
    <div class="col-md-12">
@@ -280,7 +258,7 @@
             <p>The more you tighten your grip, Tarkin, the more star systems will slip through your fingers. Don't be too proud of this technological terror you've constructed. The ability to destroy a planet is insignificant next to the power of the Force.</p>
         </div><!-- .comment-content -->
 
-        <div class="reply"><a class="comment-reply-link" href="#respond">Reply</a></div>      
+        <div class="reply"><a class="comment-reply-link" href="#respond">Reply</a></div>
       </div><!-- .comment-body -->
       <ol class="children">
         <li class="depth-2">
@@ -304,9 +282,9 @@
                   <p>The more you tighten your grip, Tarkin, the more star systems will slip through your fingers. Don't be too proud of this technological terror you've constructed. The ability to destroy a planet is insignificant next to the power of the Force.</p>
               </div><!-- .comment-content -->
 
-              <div class="reply"><a class="comment-reply-link" href="#respond">Reply</a></div>      
+              <div class="reply"><a class="comment-reply-link" href="#respond">Reply</a></div>
           </div><!-- .comment-body -->
-          
+
           <ol class="children">
             <li class="depth-3">
               <div class="comment-body">
@@ -329,7 +307,7 @@
                       <p>The more you tighten your grip, Tarkin, the more star systems will slip through your fingers. Don't be too proud of this technological terror you've constructed. The ability to destroy a planet is insignificant next to the power of the Force.</p>
                   </div><!-- .comment-content -->
 
-                  <div class="reply"><a class="comment-reply-link" href="#respond">Reply</a></div>      
+                  <div class="reply"><a class="comment-reply-link" href="#respond">Reply</a></div>
               </div><!-- .comment-body -->
             </li><!-- #comment-## -->
           </ol><!-- .children -->
@@ -358,7 +336,7 @@
             <p>The more you tighten your grip, Tarkin, the more star systems will slip through your fingers. Don't be too proud of this technological terror you've constructed. The ability to destroy a planet is insignificant next to the power of the Force.</p>
         </div><!-- .comment-content -->
 
-        <div class="reply"><a class="comment-reply-link" href="#respond">Reply</a></div>      
+        <div class="reply"><a class="comment-reply-link" href="#respond">Reply</a></div>
       </div><!-- .comment-body -->
     </li><!-- #comment-## -->
 
@@ -428,7 +406,7 @@
       <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="tab-popular">
 
-          <article class="widget-post clearfix">  
+          <article class="widget-post clearfix">
             <div class="simple-thumb">
               <a href="#">
                 <img src="img/small-thumb/small_thumb13.jpg" alt="">
@@ -444,7 +422,7 @@
             </header>
           </article>
 
-          <article class="widget-post clearfix">  
+          <article class="widget-post clearfix">
             <div class="simple-thumb">
               <a href="#">
                 <span class="play-button"><i class="fa fa-play"></i></span>
@@ -461,7 +439,7 @@
             </header>
           </article>
 
-          <article class="widget-post clearfix">  
+          <article class="widget-post clearfix">
             <div class="simple-thumb">
               <a href="#">
                 <img src="img/small-thumb/small_thumb14.jpg" alt="">
@@ -477,7 +455,7 @@
             </header>
           </article>
 
-          <article class="widget-post clearfix">  
+          <article class="widget-post clearfix">
             <div class="simple-thumb">
               <a href="#">
                 <img src="img/small-thumb/small_thumb15.jpg" alt="">
@@ -493,7 +471,7 @@
             </header>
           </article>
 
-          <article class="widget-post clearfix">  
+          <article class="widget-post clearfix">
             <div class="simple-thumb">
               <a href="#">
                 <img src="img/small-thumb/small_thumb16.jpg" alt="">
@@ -512,7 +490,7 @@
         </div><!-- Popular posts -->
         <div role="tabpanel" class="tab-pane" id="tab-recent">
 
-          <article class="widget-post clearfix">  
+          <article class="widget-post clearfix">
             <div class="simple-thumb">
               <a href="#">
                 <img src="img/small-thumb/small_thumb8.jpg" alt="">
@@ -528,7 +506,7 @@
             </header>
           </article>
 
-          <article class="widget-post clearfix">  
+          <article class="widget-post clearfix">
             <div class="simple-thumb">
               <a href="#">
                 <img src="img/small-thumb/small_thumb5.jpg" alt="">
@@ -544,7 +522,7 @@
             </header>
           </article>
 
-          <article class="widget-post clearfix">  
+          <article class="widget-post clearfix">
             <div class="simple-thumb">
               <a href="#">
                 <img src="img/small-thumb/small_thumb7.jpg" alt="">
@@ -560,7 +538,7 @@
             </header>
           </article>
 
-          <article class="widget-post clearfix">  
+          <article class="widget-post clearfix">
             <div class="simple-thumb">
               <a href="#">
                 <img src="img/small-thumb/small_thumb10.jpg" alt="">
@@ -576,7 +554,7 @@
             </header>
           </article>
 
-          <article class="widget-post clearfix">  
+          <article class="widget-post clearfix">
             <div class="simple-thumb">
               <a href="#">
                 <img src="img/small-thumb/small_thumb6.jpg" alt="">
@@ -591,11 +569,11 @@
               </p>
             </header>
           </article>
-          
+
         </div><!-- Recent Posts -->
 
         <div role="tabpanel" class="tab-pane" id="tab-comments">
-          <div class="widget-post clearfix">  
+          <div class="widget-post clearfix">
             <div class="author-thumb">
               <a href="#">
                 <img src="img/author1.jpg" alt="">
@@ -611,7 +589,7 @@
             </div>
           </div>
 
-          <div class="widget-post clearfix">  
+          <div class="widget-post clearfix">
             <div class="author-thumb">
               <a href="#">
                 <img src="img/author2.jpg" alt="">
@@ -627,7 +605,7 @@
             </div>
           </div>
 
-          <div class="widget-post clearfix">  
+          <div class="widget-post clearfix">
             <div class="author-thumb">
               <a href="#">
                 <img src="img/author1.jpg" alt="">
@@ -643,7 +621,7 @@
             </div>
           </div>
 
-          <div class="widget-post clearfix">  
+          <div class="widget-post clearfix">
             <div class="author-thumb">
               <a href="#">
                 <img src="img/author3.jpg" alt="">
@@ -659,7 +637,7 @@
             </div>
           </div>
 
-          <div class="widget-post clearfix">  
+          <div class="widget-post clearfix">
             <div class="author-thumb">
               <a href="#">
                 <img src="img/author-thumb.jpg" alt="">
@@ -698,7 +676,7 @@
     <div class="widget reviewwidget">
       <h3 class="block-title"><span>Reviews</span></h3>
 
-      <article class="widget-post clearfix">  
+      <article class="widget-post clearfix">
         <div class="simple-thumb">
           <a href="#">
             <img src="img/small-thumb/small_thumb17.jpg" alt="">
@@ -720,7 +698,7 @@
         </header>
       </article>
 
-      <article class="widget-post clearfix">  
+      <article class="widget-post clearfix">
         <div class="simple-thumb">
           <a href="#">
             <img src="img/small-thumb/small_thumb18.jpg" alt="">
@@ -742,7 +720,7 @@
         </header>
       </article>
 
-      <article class="widget-post clearfix">  
+      <article class="widget-post clearfix">
         <div class="simple-thumb">
           <a href="#">
             <img src="img/small-thumb/small_thumb19.jpg" alt="">
@@ -764,7 +742,7 @@
         </header>
       </article>
 
-      <article class="widget-post clearfix">  
+      <article class="widget-post clearfix">
         <div class="simple-thumb">
           <a href="#">
             <img src="img/small-thumb/small_thumb20.jpg" alt="">
@@ -820,7 +798,9 @@
     </div>
 
   </aside>
-</div><!-- End last column -->        
+</div><!-- End last column -->
       </div><!-- .blog-content -->
-      
+
     </div><!-- .main-content -->
+
+{% endblock %}

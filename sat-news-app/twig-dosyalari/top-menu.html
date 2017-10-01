@@ -1,7 +1,7 @@
 {% for cat in cats %}
-    
+
 <li class="dropdown mega-full menu-color3">
-  <a href="minimal_blog.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="/kategori/{{cat.id}}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
     {{cat.title}}
   </a>
   <ul class="dropdown-menu fullwidth">
@@ -11,7 +11,7 @@
         {% for i in 1..5 %}
         <div class="mega-menu-news">
           <div class="mega-menu-img">
-            <a href="#">
+            <a href="/haber/{{i}}">
               <img class="entry-thumb" src="img/medium-thumb/med_thumb35.jpg" alt="">
             </a>
           </div>

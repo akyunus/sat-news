@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 20 Eyl 2017, 21:45:45
+-- Üretim Zamanı: 01 Eki 2017, 22:44:58
 -- Sunucu sürümü: 10.1.21-MariaDB
 -- PHP Sürümü: 7.1.1
 
@@ -33,6 +33,13 @@ CREATE TABLE `authors` (
   `pass` varchar(64) COLLATE utf8_turkish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
 
+--
+-- Tablo döküm verisi `authors`
+--
+
+INSERT INTO `authors` (`id`, `name`, `login`, `pass`) VALUES
+(1, 'Admin', '', '');
+
 -- --------------------------------------------------------
 
 --
@@ -44,16 +51,16 @@ CREATE TABLE `categories` (
   `title` varchar(64) COLLATE utf8_turkish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
 
--- --------------------------------------------------------
-
 --
--- Tablo için tablo yapısı `category_tags`
+-- Tablo döküm verisi `categories`
 --
 
-CREATE TABLE `category_tags` (
-  `category_id` int(11) NOT NULL,
-  `tag_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+INSERT INTO `categories` (`id`, `title`) VALUES
+(1, 'Teknoloji'),
+(2, 'Ekonomi'),
+(3, 'Dünya'),
+(4, 'Yaşam'),
+(5, 'Eğitim');
 
 -- --------------------------------------------------------
 
@@ -71,6 +78,32 @@ CREATE TABLE `news` (
   `author_id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+
+--
+-- Tablo döküm verisi `news`
+--
+
+INSERT INTO `news` (`id`, `title`, `content`, `image_url`, `views`, `date`, `author_id`, `category_id`) VALUES
+(1, 'Teknoloji Haberi 1', 'teknoloji haberi .... teknoloji haberi .... teknoloji haberi .... teknoloji haberi .... teknoloji haberi .... teknoloji haberi .... teknoloji haberi .... teknoloji haberi .... teknoloji haberi .... ', '', 123, '0000-00-00 00:00:00', 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `news_tags`
+--
+
+CREATE TABLE `news_tags` (
+  `news_id` int(11) NOT NULL,
+  `tag_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci ROW_FORMAT=COMPACT;
+
+--
+-- Tablo döküm verisi `news_tags`
+--
+
+INSERT INTO `news_tags` (`news_id`, `tag_id`) VALUES
+(1, 1),
+(1, 2);
 
 -- --------------------------------------------------------
 
@@ -128,17 +161,17 @@ ALTER TABLE `tags`
 -- Tablo için AUTO_INCREMENT değeri `authors`
 --
 ALTER TABLE `authors`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- Tablo için AUTO_INCREMENT değeri `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- Tablo için AUTO_INCREMENT değeri `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- Tablo için AUTO_INCREMENT değeri `tags`
 --
